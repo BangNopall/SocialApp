@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class LoginScreen extends StatefulWidget {
+class SignUpScreen extends StatefulWidget {
   final VoidCallback show;
-  const LoginScreen(this.show, {super.key});
+  const SignUpScreen(this.show, {super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<SignUpScreen> createState() => _SignUpScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _SignUpScreenState extends State<SignUpScreen> {
   final email = TextEditingController();
   final password = TextEditingController();
+  final confirmpassword = TextEditingController();
+  final username = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,18 +35,20 @@ class _LoginScreenState extends State<LoginScreen> {
           SizedBox(height: 50.h),
           Center(
             child: Text(
-              "Hello! Welcome to SocialApp",
+              "Sign up and enjoy our community",
               style: TextStyle(color: Colors.grey[700]),
             ),
           ),
           SizedBox(height: 50.h),
+          textField(username, "Username", false),
+          SizedBox(height: 20.h),
           textField(email, "Your Email", false),
           SizedBox(height: 20.h),
           textField(password, "Password", true),
-          SizedBox(height: 10.h),
-          forgot(),
           SizedBox(height: 20.h),
-          buttonLogin(),
+          textField(confirmpassword, "Confirm Password", true),
+          SizedBox(height: 20.h),
+          buttonSignup(),
           SizedBox(height: 10.h),
           have(context),
         ],
@@ -59,7 +63,7 @@ class _LoginScreenState extends State<LoginScreen> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            'Dont have an account?',
+            'Already Have an Account?',
             style: TextStyle(
                 color: Colors.grey[700],
                 fontWeight: FontWeight.bold,
@@ -69,19 +73,19 @@ class _LoginScreenState extends State<LoginScreen> {
           GestureDetector(
             onTap: widget.show,
             child: Text(
-              'Sign Up',
+              'Sign In',
               style: TextStyle(
                   color: Color(0xFF235DFF),
                   fontWeight: FontWeight.bold,
                   fontSize: 13.sp),
             ),
-          )
+          ),
         ],
       ),
     );
   }
 
-  Widget buttonLogin() {
+  Widget buttonSignup() {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 10.w),
       child: Container(
@@ -92,25 +96,12 @@ class _LoginScreenState extends State<LoginScreen> {
             color: Color(0xFF235DFF),
             borderRadius: BorderRadius.circular(15.r)),
         child: Text(
-          'Sign In',
+          'Sign Up',
           style: TextStyle(
               color: Colors.white,
               fontWeight: FontWeight.bold,
               fontSize: 16.sp),
         ),
-      ),
-    );
-  }
-
-  Widget forgot() {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 10.w),
-      child: Text(
-        "Forgot Password?",
-        style: TextStyle(
-            color: Color(0xFF235DFF),
-            fontWeight: FontWeight.bold,
-            fontSize: 13.sp),
       ),
     );
   }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:socialapp/auth/auth_screen.dart';
 import 'package:socialapp/screens/login.dart';
 
 void main() {
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: ScreenUtilInit(designSize:Size(375, 812), child: LoginScreen()),
+      home: ScreenUtilInit(designSize:Size(375, 812), child: AuthPage()),
     );
   }
 }
