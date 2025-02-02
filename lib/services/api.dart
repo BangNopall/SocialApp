@@ -1,7 +1,3 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:socialapp/auth/auth_screen.dart';
-
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
@@ -42,21 +38,5 @@ class ApiService {
     } else {
       throw Exception("Failed to login");
     }
-  }
-}
-
-void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: ScreenUtilInit(designSize:Size(375, 812), child: AuthPage()),
-    );
   }
 }
